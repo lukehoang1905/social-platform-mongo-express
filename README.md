@@ -10,7 +10,7 @@ This is the solution for the full-stack web dev course @CoderSchoolVn
 
 This include all common features of a Social Platform.
 
-### User authentication and managing account
+### User authentication and managing account (UserFlow)
 
 1. User can create account with email and password
 2. User can login with email and password
@@ -20,14 +20,14 @@ This include all common features of a Social Platform.
 6. Owner can update own account profile
 7. Owner can deactivate own account
 
-### CRUD post with friend only access
+### CRUD post with friend only access (PostFlow)
 
 1. Authenticated user can make a post (POST a post)
 2. Author can update post by post's id
 3. Author can delete post by post's id
 4. Friend can see list of friend's post
 
-### CRUD comment & reaction for friend
+### CRUD comment & reaction for friend (InteractionFlow)
 
 1. Friend can make a comment (POST a comment) to other friend's post
 2. Friend can see a list of all comment belong to friend's post
@@ -35,7 +35,7 @@ This include all common features of a Social Platform.
 4. Author of Comment can delete that comment
 5. Friend can make a reaction (like, dislike) to each other post
 
-### Managing friend relationship
+### Managing friend relationship (FriendFlow)
 
 1. Authenticated user can see list of friend
 2. Authenticated user can make friend request to other
