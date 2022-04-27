@@ -53,4 +53,4 @@ This include all common features of a Social Platform.
 
 ## The end
 
-@copyright by Tuan Hoang
+@copyright by CoderSchool
