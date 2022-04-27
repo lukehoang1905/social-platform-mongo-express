@@ -20,28 +20,28 @@ This include all common features of a Social Platform.
 
 ### CRUD post with friend only access
 
-8. Authenticated user can make a post (POST a post)
-9. Author can update post by post's id
-10. Author can delete post by post's id
-11. Friend can see list of friend's post
+1. Authenticated user can make a post (POST a post)
+2. Author can update post by post's id
+3. Author can delete post by post's id
+4. Friend can see list of friend's post
 
 ### CRUD comment & reaction for friend
 
-12. Friend can make a comment (POST a comment) to other friend's post
-13. Friend can see a list of all comment belong to friend's post
-14. Author of Comment can update that comment
-15. Author of Comment can delete that comment
-16. Friend can make a reaction (like, dislike) to each other post
+1. Friend can make a comment (POST a comment) to other friend's post
+2. Friend can see a list of all comment belong to friend's post
+3. Author of Comment can update that comment
+4. Author of Comment can delete that comment
+5. Friend can make a reaction (like, dislike) to each other post
 
 ### Managing friend relationship
 
-17. Authenticated user can see list of friend
-18. Authenticated user can make friend request to other
-19. Authenticated user can accept or reject a friend request
-20. Authenticated user can see a list of all request receive
-21. Author can see a list of all request sent
-22. Author of Request can cancel the request
-23. Friend can unfriend
+1. Authenticated user can see list of friend
+2. Authenticated user can make friend request to other
+3. Authenticated user can accept or reject a friend request
+4. Authenticated user can see a list of all request receive
+5. Author can see a list of all request sent
+6. Author of Request can cancel the request
+7. Friend can unfriend
 
 ## Production API
 
