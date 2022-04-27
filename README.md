@@ -42,3 +42,7 @@ This include all common features of a Social Platform.
 21. Author can see a list of all request sent
 22. Author of Request can cancel the request
 23. Friend can unfriend
+
+## The end
+
+@copyright by Tuan Hoang
