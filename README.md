@@ -2,7 +2,9 @@
 
 ## Description
 
-A social platform web application built with MERN stack.
+A social platform web application built with MERN stack. This is the codebase for the MongoDB NodeJS and Express RESTful backend API.
+
+This is the solution for the full-stack web dev course @CoderSchoolVn
 
 ## Features
 
