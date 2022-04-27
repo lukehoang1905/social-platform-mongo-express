@@ -43,6 +43,12 @@ This include all common features of a Social Platform.
 22. Author of Request can cancel the request
 23. Friend can unfriend
 
+## Production API
+
+- [Doc](https://app.swaggerhub.com/apis-docs/dhminh1024/CoderComm/1.0.0#/Reaction/createReaction)
+
+- [App demo](https://codercomm-dot-cs-platform-306304.et.r.appspot.com/)
+
 ## The end
 
 @copyright by Tuan Hoang
