@@ -24,10 +24,10 @@ This include all common features of a Social Platform.
 
 ### CRUD post with friend only access (PostFlow)
 
-1. Authenticated user can make a post (POST a post)
-2. Author can update post by post's id
-3. Author can delete post by post's id
-4. Friend can see list of friend's post
+1. Authenticated user can make a post (POST a post) ✅
+2. Author can update post by post's id ✅
+3. Author can delete post by post's id ✅
+4. Friend can see list of friend's post ❌
 
 ### CRUD comment & reaction for friend (InteractionFlow)
 
