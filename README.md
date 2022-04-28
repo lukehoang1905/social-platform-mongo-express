@@ -12,7 +12,7 @@ This include all common features of a Social Platform.
 
 ### User authentication and managing account (UserFlow)
 
-1. User can create account with email and password
+1. User can create account with email and password ✅
 2. User can login with email and password
 3. User can see a list of all users
 4. User can see other user's information by id
