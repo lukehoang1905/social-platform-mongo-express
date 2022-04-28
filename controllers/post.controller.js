@@ -67,7 +67,8 @@ postController.getFriendPost = catchAsync(async (req, res, next) => {
   let postList = await Post.find({ isDeleted: false })
     .sort({ createAt: -1 })
     .skip(offset)
-    .limit(limit);
+    .limit(limit)
+    .populate("author");
 
   return sendResponse(
     res,

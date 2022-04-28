@@ -52,15 +52,28 @@ userController.loginEmailPassword = catchAsync(async (req, res, next) => {
 });
 
 userController.getAllUsers = catchAsync(async (req, res, next) => {
-  let { page, limit } = req.query;
+  let { page, limit, ...filter } = { ...req.query };
   page = parseInt(page) || 1;
   limit = parseInt(limit) || 10;
 
-  const count = await User.countDocuments({ isDeleted: false });
+  const filterCondition = [{ isDeleted: false }];
+
+  const allow = ["name", "email"];
+
+  allow.forEach((field) => {
+    if (filter[field] !== undefined) {
+      filterCondition.push({
+        [field]: { $regex: filter[field], $options: "i" },
+      });
+    }
+  });
+  const filterCritera = filterCondition.length ? { $and: filterCondition } : {};
+
+  const count = await User.countDocuments(filterCritera);
   const totalPage = Math.ceil(count / limit);
   const offset = limit * (page - 1);
 
-  let userList = await User.find({ isDeleted: false })
+  let userList = await User.find(filterCritera)
     .sort({ createAt: -1 })
     .skip(offset)
     .limit(limit);

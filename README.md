@@ -19,8 +19,9 @@ This include all common features of a Social Platform.
 5. Owner can see own user's information ✅
 6. Owner can update own account profile ✅
 7. Owner can deactivate own account ✅
-8. Rocket Owner update password
-9. Rocket Password confirm when update
+8. Rocket Search user by name ✅
+9. Rocket Owner update password
+10. Rocket Password confirm when update
 
 ### CRUD post with friend only access (PostFlow)
 
