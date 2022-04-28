@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { AppError } = require("../helpers/utils");
+
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 const authMiddleware = {};
@@ -16,7 +17,6 @@ authMiddleware.loginRequired = (req, res, next) => {
         throw AppError(401, "Token Error", "Login Require Error");
       }
       req.currentUserId = payload._id;
-      console.log("id", payload._id);
     });
     next();
   } catch (error) {
