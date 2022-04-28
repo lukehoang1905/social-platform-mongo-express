@@ -68,16 +68,52 @@ userController.getAllUsers = catchAsync(async (req, res, next) => {
   return sendResponse(res, 200, { userList, totalPage }, null, "successful");
 });
 userController.getSingleUserById = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, {}, null, "successful");
+  const { id } = req.params;
+  const user = await User.findById(id);
+  if (!user) {
+    throw new AppError(404, "User Not Found", "Get current user error");
+  }
+
+  return sendResponse(
+    res,
+    200,
+    user,
+    null,
+    " Get Single User By Id successful"
+  );
 });
 userController.getCurrentUserProfile = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, {}, null, "successful");
+  const { currentUserId } = req;
+  const currentUser = await User.findById(currentUserId);
+  if (!currentUser) {
+    throw new AppError(404, "User Not Found", "Get current user error");
+  }
+  return sendResponse(res, 200, currentUser, null, "successful");
 });
 userController.updateCurrentUser = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, {}, null, "successful");
+  const { currentUserId } = req;
+  let user = await User.findById(currentUserId);
+  if (!user) {
+    throw new AppError(404, "User Not Found", "Get current user error");
+  }
+  const allows = ["name", "city", "aboutMe"];
+  allows.forEach((field) => {
+    if (req.body[field] !== undefined) {
+      user[field] = req.body[field];
+    }
+  });
+  await user.save();
+  return sendResponse(res, 200, user, null, "successful");
 });
 userController.deactivateCurrentUser = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, {}, null, "successful");
+  const { currentUserId } = req;
+  //delete password confirm
+  await User.findByIdAndUpdate(
+    currentUserId,
+    { isDeleted: true },
+    { new: true }
+  );
+  return sendResponse(res, 200, {}, null, "Deactivate user successful");
 });
 
 module.exports = userController;

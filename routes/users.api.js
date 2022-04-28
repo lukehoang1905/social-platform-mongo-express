@@ -8,6 +8,7 @@ const {
   deactivateCurrentUser,
   getCurrentUserProfile,
 } = require("../controllers/user.controllers");
+const { loginRequired } = require("../middlewares/authentication");
 const router = express.Router();
 
 /**
@@ -45,20 +46,20 @@ router.get("/:id", getSingleUserById);
  * @method:
  * @param:
  */
-router.get("/me/get", getCurrentUserProfile);
+router.get("/me/get", loginRequired, getCurrentUserProfile);
 /**
  * @description:
  * @access:
  * @method:
  * @param:
  */
-router.put("/me/update", updateCurrentUser);
+router.put("/me/update", loginRequired, updateCurrentUser);
 /**
  * @description:
  * @access:
  * @method:
  * @param:
  */
-router.delete("/me/deactivate", deactivateCurrentUser);
+router.delete("/me/deactivate", loginRequired, deactivateCurrentUser);
 
 module.exports = router;

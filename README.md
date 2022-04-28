@@ -13,12 +13,14 @@ This include all common features of a Social Platform.
 ### User authentication and managing account (UserFlow)
 
 1. User can create account with email and password ✅
-2. User can login with email and password
-3. User can see a list of all users
-4. User can see other user's information by id
-5. Owner can see own user's information
-6. Owner can update own account profile
-7. Owner can deactivate own account
+2. User can login with email and password ✅
+3. User can see a list of all users ✅
+4. User can see other user's information by id ✅
+5. Owner can see own user's information ✅
+6. Owner can update own account profile ✅
+7. Owner can deactivate own account ✅
+8. Rocket Owner update password
+9. Rocket Password confirm when update
 
 ### CRUD post with friend only access (PostFlow)
 
