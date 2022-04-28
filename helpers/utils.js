@@ -36,7 +36,5 @@ class AppError extends Error {
   }
 }
 
-new AppError(200, "Password not match", "Login Error");
-
 utilsHelper.AppError = AppError;
 module.exports = utilsHelper;
