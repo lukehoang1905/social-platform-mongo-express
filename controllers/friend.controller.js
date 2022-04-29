@@ -1,6 +1,6 @@
 const { catchAsync, sendResponse, AppError } = require("../helpers/utils");
 const Friend = require("../models/Friendship");
-const { findById, find } = require("../models/Friendship");
+const { findById, find, findOneAndDelete } = require("../models/Friendship");
 const User = require("../models/User");
 
 const friendController = {};
@@ -136,6 +136,7 @@ friendController.listOfReceive = catchAsync(async (req, res, next) => {
     "successful"
   );
 });
+
 friendController.listOfSent = catchAsync(async (req, res, next) => {
   const { currentUserId } = req;
   let { page, limit, ...filter } = { ...req.query };
@@ -179,12 +180,64 @@ friendController.listOfSent = catchAsync(async (req, res, next) => {
 });
 
 friendController.responseToRequest = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, true, {}, null, "successful");
+  const { currentUserId } = req;
+  const { receiverId } = req.params;
+  const { status } = req.body;
+
+  let friendship = await Friend.findOne({
+    to: currentUserId,
+    from: receiverId,
+    status: "pending",
+  });
+
+  if (!friendship) {
+    throw new AppError(
+      400,
+      "Friend Request not found",
+      "Response to friend request"
+    );
+  }
+  friendship.status = status;
+  friendship = await friendship.save();
+
+  return sendResponse(res, 200, true, friendship, null, "successful");
 });
+
 friendController.cancelRequest = catchAsync(async (req, res, next) => {
+  const { currentUserId } = req;
+  const { receiverId } = req.body;
+
+  const friendship = await Friend.findOneAndDelete({
+    from: currentUserId,
+    to: receiverId,
+    status: "pending",
+  });
+  console.log(friendship, "here");
+  if (!friendship) {
+    throw new Error(401, "Can not find friend request", "Cancel request error");
+  }
   return sendResponse(res, 200, true, {}, null, "successful");
 });
+
 friendController.unfriend = catchAsync(async (req, res, next) => {
+  const { currentUserId } = req;
+  const { receiverId } = req.params;
+
+  const friendship = await Friend.findOneAndDelete({
+    $or: [
+      {
+        from: currentUserId,
+        to: receiverId,
+        status: "accepted",
+      },
+      { from: receiverId, to: currentUserId, status: "accepted" },
+    ],
+  });
+  if (!friendship) {
+    throw new Error(401, "Can not find friend request", "Cancel request error");
+  }
+
   return sendResponse(res, 200, true, {}, null, "successful");
 });
+
 module.exports = friendController;

@@ -1,5 +1,5 @@
 const express = require("express");
-const { body } = require("express-validator");
+const { body, param } = require("express-validator");
 const {
   makeFriendRequest,
   listOfFriend,
@@ -10,7 +10,11 @@ const {
   unfriend,
 } = require("../controllers/friend.controller");
 const { loginRequired } = require("../middlewares/authentication");
-const { checkObjectId, validate } = require("../middlewares/validator");
+const {
+  checkObjectId,
+  validate,
+  statusValueCheck,
+} = require("../middlewares/validator");
 
 const router = express.Router();
 // 1. Authenticated user can make friend request to other
@@ -27,9 +31,19 @@ router.get("/requests/incoming", loginRequired, listOfReceive);
 router.get("/requests/outgoing", loginRequired, listOfSent);
 
 router.delete("/requests/cancel", loginRequired, cancelRequest);
-router.put("/requests/:requestid", loginRequired, responseToRequest);
+
+router.put(
+  "/requests/:receiverid",
+  validate([
+    param("receiverid").exists().isString().custom(checkObjectId),
+    body("status").exists().isString().custom(statusValueCheck),
+  ]),
+  loginRequired,
+  responseToRequest
+);
+// router.put("/requests/:userId", loginRequired, responseToRequest);
 
 router.get("/me/all", loginRequired, listOfFriend);
-router.delete("/unfriend/:userId", loginRequired, unfriend);
+router.delete("/unfriend/:receiverId", loginRequired, unfriend);
 
 module.exports = router;
