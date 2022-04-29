@@ -37,7 +37,7 @@ userController.register = catchAsync(async (req, res, next) => {
 userController.loginEmailPassword = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
   //check input
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email }, "+password");
 
   if (!user) {
     throw new AppError(400, "User not found", "Login Error");
