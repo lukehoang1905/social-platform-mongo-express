@@ -1,6 +1,6 @@
 const { catchAsync, sendResponse, AppError } = require("../helpers/utils");
 const Friend = require("../models/Friendship");
-const { findById } = require("../models/Friendship");
+const { findById, find } = require("../models/Friendship");
 const User = require("../models/User");
 
 const friendController = {};
@@ -8,6 +8,7 @@ const friendController = {};
 friendController.makeFriendRequest = catchAsync(async (req, res, next) => {
   const requestorId = req.currentUserId;
   const receiverId = req.body.to;
+
   const receiver = await User.findById(receiverId);
 
   if (!receiver) {
@@ -50,7 +51,39 @@ friendController.makeFriendRequest = catchAsync(async (req, res, next) => {
 });
 
 friendController.listOfFriend = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, true, {}, null, "successful");
+  const { currentUserId } = req;
+  let { page, limit, ...filter } = { ...req.query };
+  page = parseInt(page) || 1;
+  limit = parseInt(limit) || 10;
+
+  let friendList = await Friend.find({
+    $or: [{ from: currentUserId }, { to: currentUserId }],
+    status: "accepted",
+  });
+
+  let friendIDs = friendList.map(({ from, to }) => {
+    if (from.equals(currentUserId)) return to;
+    return from;
+  });
+
+  const filterCriteria = { _id: { $in: friendIDs } };
+  const count = await User.countDocuments(filterCriteria);
+  const totalPages = Math.ceil(count / limit);
+  const offset = limit * (page - 1);
+
+  const users = await User.find(filterCriteria)
+    .sort({ createdAt: -1 })
+    .skip(offset)
+    .limit(limit);
+
+  return sendResponse(
+    res,
+    200,
+    true,
+    { users, totalPages },
+    null,
+    "successful"
+  );
 });
 friendController.responseToRequest = catchAsync(async (req, res, next) => {
   return sendResponse(res, 200, true, {}, null, "successful");

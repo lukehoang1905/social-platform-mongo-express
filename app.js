@@ -20,7 +20,10 @@ app.use(cors());
 /* DB Connection */
 mongoose
   .connect(mongoURI)
-  .then(() => console.log(`DB connected`))
+  .then(() => {
+    console.log(`DB connected`);
+    // require("./createFriend.js");
+  })
   .catch((err) => console.log(err));
 
 app.use("/v1", indexRouter);
