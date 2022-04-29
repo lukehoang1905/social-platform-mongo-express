@@ -44,6 +44,12 @@ router.put(
 // router.put("/requests/:userId", loginRequired, responseToRequest);
 
 router.get("/me/all", loginRequired, listOfFriend);
-router.delete("/unfriend/:receiverId", loginRequired, unfriend);
+
+router.delete(
+  "/unfriend/:receiverId",
+  validate([param("receiverId").exists().isString().custom(checkObjectId)]),
+  loginRequired,
+  unfriend
+);
 
 module.exports = router;
