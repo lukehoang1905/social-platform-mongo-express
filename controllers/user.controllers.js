@@ -36,6 +36,7 @@ userController.register = catchAsync(async (req, res, next) => {
 
 userController.loginEmailPassword = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
+
   const user = await User.findOne({ email });
 
   if (!user) {
@@ -80,6 +81,7 @@ userController.getAllUsers = catchAsync(async (req, res, next) => {
 
   return sendResponse(res, 200, { userList, totalPage }, null, "successful");
 });
+
 userController.getSingleUserById = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const user = await User.findById(id);

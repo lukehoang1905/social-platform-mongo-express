@@ -1,1 +1,243 @@
-{"client":"Thunder Client","collectionName":"coder-com-api","dateExported":"2022-04-28T10:04:16.646Z","version":"1.1","folders":[{"_id":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"User flow","containerId":"","created":"2022-04-28T04:16:52.716Z","sortNum":10000},{"_id":"e1c795e6-1ecc-4dda-a570-af045bef2fcb","name":"Post flow","containerId":"","created":"2022-04-28T08:14:23.157Z","sortNum":30000}],"requests":[{"_id":"0910b3cd-eb0d-4b2f-9f07-6f171e042f6d","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"Register account with email","url":"{{host}}/users/register","method":"POST","sortNum":10000,"created":"2022-04-28T04:17:07.493Z","modified":"2022-04-28T09:54:41.132Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n    \"name\":\"tuNotTuan\",\n    \"email\":\"tuan10@gmail.com\",\n    \"password\":\"123abc\"\n}","form":[]},"tests":[]},{"_id":"87a89993-3781-4279-a384-285b4ae261b7","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"Login with email password","url":"{{host}}/users/login","method":"POST","sortNum":20000,"created":"2022-04-28T04:46:07.888Z","modified":"2022-04-28T04:46:40.461Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n    \"name\":\"tuan\",\n    \"email\":\"tuan@gmail.com\",\n    \"password\":\"123abc\"\n}","form":[]},"tests":[]},{"_id":"b0ff4745-0f25-4ab5-893a-a925b43e8bff","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"e1c795e6-1ecc-4dda-a570-af045bef2fcb","name":"Create a post","url":"{{host}}/posts/create","method":"POST","sortNum":20000,"created":"2022-04-28T08:14:40.284Z","modified":"2022-04-28T08:36:04.720Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"}],"params":[],"body":{"type":"json","raw":"{\n    \"image\":\"http://\",\n    \"content\":\"This is my first post \"\n}","form":[]},"tests":[]},{"_id":"e95cd57d-2c79-4a5b-b275-657dbb7d5e78","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"Get all users","url":"{{host}}/users/all?name=tuN","method":"GET","sortNum":30000,"created":"2022-04-28T04:47:06.570Z","modified":"2022-04-28T10:00:09.370Z","headers":[],"params":[{"name":"name","value":"tuN","isPath":false}],"tests":[]},{"_id":"2ae16ea1-9e09-4e89-b748-038bce6c84a4","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"e1c795e6-1ecc-4dda-a570-af045bef2fcb","name":"Get all friend's post","url":"{{host}}/posts","method":"GET","sortNum":30000,"created":"2022-04-28T08:15:37.548Z","modified":"2022-04-28T08:48:31.925Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"}],"params":[],"tests":[]},{"_id":"44a0dbcb-1bce-4219-9e55-fadb189a5cc7","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"Get single user by id","url":"{{host}}/users/626a1763823bfa06c22dc2d2","method":"GET","sortNum":40000,"created":"2022-04-28T07:13:07.956Z","modified":"2022-04-28T09:24:03.074Z","headers":[],"params":[],"tests":[]},{"_id":"2ad20d7e-03cc-494a-8e0b-10c588f08089","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"e1c795e6-1ecc-4dda-a570-af045bef2fcb","name":"Delete own post with post id","url":"{{host}}/posts/626a5216d0593437d5f2db59","method":"DELETE","sortNum":40000,"created":"2022-04-28T08:15:39.558Z","modified":"2022-04-28T08:55:59.477Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"}],"params":[],"tests":[]},{"_id":"0a709085-d33d-4820-89c6-bff01c0cb940","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"Get current user profile","url":"{{host}}/users/me/get","method":"GET","sortNum":50000,"created":"2022-04-28T07:25:23.787Z","modified":"2022-04-28T07:26:21.433Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"}],"params":[],"tests":[]},{"_id":"298c343a-2be2-4520-a6a6-10a01a1025c2","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"e1c795e6-1ecc-4dda-a570-af045bef2fcb","name":"Edit own post","url":"{{host}}/posts/626a5216d0593437d5f2db59","method":"PUT","sortNum":50000,"created":"2022-04-28T08:15:41.293Z","modified":"2022-04-28T08:49:27.426Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"}],"params":[],"body":{"type":"json","raw":"{\n    \"content\":\"I have changed\",\n    \"image\":\"someImage\"\n}","form":[]},"tests":[]},{"_id":"d6238c4b-66fd-4a9f-8cc8-2298b2efba2e","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"Update current user","url":"{{host}}/users/me/update","method":"PUT","sortNum":60000,"created":"2022-04-28T07:36:04.935Z","modified":"2022-04-28T07:37:34.701Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"}],"params":[],"body":{"type":"json","raw":"{\n    \"name\":\"Trung\"\n}","form":[]},"tests":[]},{"_id":"4bdac316-443c-4bea-8002-678bb41299f6","colId":"4f4ff1ce-7340-435f-aa29-f87868150c4c","containerId":"2e4d2d44-89c1-4742-8f62-db171f273fe9","name":"Update current user Copy","url":"{{host}}/users/me/deactivate","method":"DELETE","sortNum":70000,"created":"2022-04-28T07:40:11.416Z","modified":"2022-04-28T07:40:18.519Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"}],"params":[],"body":{"type":"json","raw":"{\n    \"name\":\"Trung\"\n}","form":[]},"tests":[]}]}
+{
+  "client": "Thunder Client",
+  "collectionName": "coder-com-api",
+  "dateExported": "2022-04-28T10:04:16.646Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "User flow",
+      "containerId": "",
+      "created": "2022-04-28T04:16:52.716Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "e1c795e6-1ecc-4dda-a570-af045bef2fcb",
+      "name": "Post flow",
+      "containerId": "",
+      "created": "2022-04-28T08:14:23.157Z",
+      "sortNum": 30000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "0910b3cd-eb0d-4b2f-9f07-6f171e042f6d",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "Register account with email",
+      "url": "{{host}}/users/register",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-04-28T04:17:07.493Z",
+      "modified": "2022-04-28T09:54:41.132Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"name\":\"tuNotTuan\",\n    \"email\":\"tuan10@gmail.com\",\n    \"password\":\"123abc\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "87a89993-3781-4279-a384-285b4ae261b7",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "Login with email password",
+      "url": "{{host}}/users/login",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-04-28T04:46:07.888Z",
+      "modified": "2022-04-28T04:46:40.461Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"name\":\"tuan\",\n    \"email\":\"tuan@gmail.com\",\n    \"password\":\"123abc\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "b0ff4745-0f25-4ab5-893a-a925b43e8bff",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "e1c795e6-1ecc-4dda-a570-af045bef2fcb",
+      "name": "Create a post",
+      "url": "{{host}}/posts/create",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-04-28T08:14:40.284Z",
+      "modified": "2022-04-28T08:36:04.720Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"image\":\"http://\",\n    \"content\":\"This is my first post \"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "e95cd57d-2c79-4a5b-b275-657dbb7d5e78",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "Get all users",
+      "url": "{{host}}/users/all?name=tuN",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-04-28T04:47:06.570Z",
+      "modified": "2022-04-28T10:00:09.370Z",
+      "headers": [],
+      "params": [{ "name": "name", "value": "tuN", "isPath": false }],
+      "tests": []
+    },
+    {
+      "_id": "2ae16ea1-9e09-4e89-b748-038bce6c84a4",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "e1c795e6-1ecc-4dda-a570-af045bef2fcb",
+      "name": "Get all friend's post",
+      "url": "{{host}}/posts",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-04-28T08:15:37.548Z",
+      "modified": "2022-04-28T08:48:31.925Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "44a0dbcb-1bce-4219-9e55-fadb189a5cc7",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "Get single user by id",
+      "url": "{{host}}/users/626a1763823bfa06c22dc2d2",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2022-04-28T07:13:07.956Z",
+      "modified": "2022-04-28T09:24:03.074Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "2ad20d7e-03cc-494a-8e0b-10c588f08089",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "e1c795e6-1ecc-4dda-a570-af045bef2fcb",
+      "name": "Delete own post with post id",
+      "url": "{{host}}/posts/626a5216d0593437d5f2db59",
+      "method": "DELETE",
+      "sortNum": 40000,
+      "created": "2022-04-28T08:15:39.558Z",
+      "modified": "2022-04-28T08:55:59.477Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "0a709085-d33d-4820-89c6-bff01c0cb940",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "Get current user profile",
+      "url": "{{host}}/users/me/get",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2022-04-28T07:25:23.787Z",
+      "modified": "2022-04-28T07:26:21.433Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "298c343a-2be2-4520-a6a6-10a01a1025c2",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "e1c795e6-1ecc-4dda-a570-af045bef2fcb",
+      "name": "Edit own post",
+      "url": "{{host}}/posts/626a5216d0593437d5f2db59",
+      "method": "PUT",
+      "sortNum": 50000,
+      "created": "2022-04-28T08:15:41.293Z",
+      "modified": "2022-04-28T08:49:27.426Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"content\":\"I have changed\",\n    \"image\":\"someImage\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "d6238c4b-66fd-4a9f-8cc8-2298b2efba2e",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "Update current user",
+      "url": "{{host}}/users/me/update",
+      "method": "PUT",
+      "sortNum": 60000,
+      "created": "2022-04-28T07:36:04.935Z",
+      "modified": "2022-04-28T07:37:34.701Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"name\":\"Trung\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "4bdac316-443c-4bea-8002-678bb41299f6",
+      "colId": "4f4ff1ce-7340-435f-aa29-f87868150c4c",
+      "containerId": "2e4d2d44-89c1-4742-8f62-db171f273fe9",
+      "name": "Update current user Copy",
+      "url": "{{host}}/users/me/deactivate",
+      "method": "DELETE",
+      "sortNum": 70000,
+      "created": "2022-04-28T07:40:11.416Z",
+      "modified": "2022-04-28T07:40:18.519Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZhMTc2MzgyM2JmYTA2YzIyZGMyZDIiLCJpYXQiOjE2NTExMzA3NzAsImV4cCI6MTY1MTIxNzE3MH0.6uzYk9Rkprdfi26fXB5yXancr0NSIa9gNuWC1CQLtjc"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"name\":\"Trung\"\n}",
+        "form": []
+      },
+      "tests": []
+    }
+  ]
+}

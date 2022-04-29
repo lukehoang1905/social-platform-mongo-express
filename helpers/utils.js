@@ -29,7 +29,6 @@ utilsHelper.catchAsync = (func) => (req, res, next) =>
 //   };
 // }
 
-// OOP programming
 class AppError extends Error {
   constructor(statusCode, message, errorType) {
     super(message);

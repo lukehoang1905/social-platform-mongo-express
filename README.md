@@ -98,6 +98,8 @@ This include all common features of a Social Platform.
    .env
    ```
 
+   NODE_OPTIONS=--experimental-vm-modules
+
 ## The end
 
 @copyright by CoderSchool
