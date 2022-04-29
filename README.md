@@ -23,6 +23,16 @@ This include all common features of a Social Platform.
 9. Rocket Owner update password
 10. Rocket Password confirm when update
 
+### Managing friend relationship (FriendFlow)
+
+1. Authenticated user can make friend request to other
+2. Authenticated user can see list of friend
+3. Authenticated user can accept or reject a friend request
+4. Authenticated user can see a list of all request receive
+5. Author can see a list of all request sent
+6. Author of Request can cancel the request
+7. Friend can unfriend
+
 ### CRUD post with friend only access (PostFlow)
 
 1. Authenticated user can make a post (POST a post) ✅
@@ -37,16 +47,6 @@ This include all common features of a Social Platform.
 3. Author of Comment can update that comment
 4. Author of Comment can delete that comment
 5. Friend can make a reaction (like, dislike) to each other post
-
-### Managing friend relationship (FriendFlow)
-
-1. Authenticated user can see list of friend
-2. Authenticated user can make friend request to other
-3. Authenticated user can accept or reject a friend request
-4. Authenticated user can see a list of all request receive
-5. Author can see a list of all request sent
-6. Author of Request can cancel the request
-7. Friend can unfriend
 
 ## Production API
 
