@@ -9,4 +9,8 @@ router.use("/users", userRouter);
 const postRouter = require("./posts.api");
 router.use("/posts", postRouter);
 
+/** friend endpoints (UF) */
+const friendRouter = require("./friends.api");
+router.use("/friends", friendRouter);
+
 module.exports = router;
