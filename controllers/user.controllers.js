@@ -36,7 +36,7 @@ userController.register = catchAsync(async (req, res, next) => {
 
 userController.loginEmailPassword = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-
+  //check input
   const user = await User.findOne({ email });
 
   if (!user) {
