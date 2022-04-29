@@ -66,7 +66,16 @@ friendController.listOfFriend = catchAsync(async (req, res, next) => {
     return from;
   });
 
-  const filterCriteria = { _id: { $in: friendIDs } };
+  const filterConditions = [{ _id: { $in: friendIDs } }];
+  if (filter.name) {
+    filterConditions.push({
+      ["name"]: { $regex: filter.name, $options: "i" },
+    });
+  }
+  const filterCriteria = filterConditions.length
+    ? { $and: filterConditions }
+    : {};
+
   const count = await User.countDocuments(filterCriteria);
   const totalPages = Math.ceil(count / limit);
   const offset = limit * (page - 1);
@@ -85,13 +94,91 @@ friendController.listOfFriend = catchAsync(async (req, res, next) => {
     "successful"
   );
 });
-friendController.responseToRequest = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, true, {}, null, "successful");
-});
+
 friendController.listOfReceive = catchAsync(async (req, res, next) => {
-  return sendResponse(res, 200, true, {}, null, "successful");
+  const { currentUserId } = req;
+  let { page, limit, ...filter } = { ...req.query };
+  page = parseInt(page) || 1;
+  limit = parseInt(limit) || 10;
+
+  let friendList = await Friend.find({
+    to: currentUserId,
+    status: "pending",
+  });
+
+  let requestorIds = friendList.map(({ from }) => from);
+
+  const filterConditions = [{ _id: { $in: requestorIds } }];
+  if (filter.name) {
+    filterConditions.push({
+      ["name"]: { $regex: filter.name, $options: "i" },
+    });
+  }
+  const filterCriteria = filterConditions.length
+    ? { $and: filterConditions }
+    : {};
+
+  const count = await User.countDocuments(filterCriteria);
+  const totalPages = Math.ceil(count / limit);
+  const offset = limit * (page - 1);
+
+  const users = await User.find(filterCriteria)
+    .sort({ createdAt: -1 })
+    .skip(offset)
+    .limit(limit);
+
+  return sendResponse(
+    res,
+    200,
+    true,
+    { users, totalPages },
+    null,
+    "successful"
+  );
 });
 friendController.listOfSent = catchAsync(async (req, res, next) => {
+  const { currentUserId } = req;
+  let { page, limit, ...filter } = { ...req.query };
+  page = parseInt(page) || 1;
+  limit = parseInt(limit) || 10;
+
+  let friendList = await Friend.find({
+    from: currentUserId,
+    status: "pending",
+  });
+
+  let receiverIDs = friendList.map(({ to }) => to);
+
+  const filterConditions = [{ _id: { $in: receiverIDs } }];
+  if (filter.name) {
+    filterConditions.push({
+      ["name"]: { $regex: filter.name, $options: "i" },
+    });
+  }
+  const filterCriteria = filterConditions.length
+    ? { $and: filterConditions }
+    : {};
+
+  const count = await User.countDocuments(filterCriteria);
+  const totalPages = Math.ceil(count / limit);
+  const offset = limit * (page - 1);
+
+  const users = await User.find(filterCriteria)
+    .sort({ createdAt: -1 })
+    .skip(offset)
+    .limit(limit);
+
+  return sendResponse(
+    res,
+    200,
+    true,
+    { users, totalPages },
+    null,
+    "successful"
+  );
+});
+
+friendController.responseToRequest = catchAsync(async (req, res, next) => {
   return sendResponse(res, 200, true, {}, null, "successful");
 });
 friendController.cancelRequest = catchAsync(async (req, res, next) => {

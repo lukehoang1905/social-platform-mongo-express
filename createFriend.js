@@ -8,8 +8,8 @@ const User = require("./models/User");
     users.map(async ({ _id }) => {
       if (users[0]._id !== _id) {
         return await Friend.create({
-          from: users[0]._id,
-          to: _id,
+          from: _id,
+          to: users[0]._id,
           status: status[Math.floor(Math.random() * 3)],
         });
       } else {
