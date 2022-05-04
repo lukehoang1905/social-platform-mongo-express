@@ -46,8 +46,8 @@ This include all common features of a Social Platform.
 2. Friend can see a list of all comment belong to friend's post ✅ (Post api)
 3. Author of Comment can update that comment ✅
 4. Author of Comment can delete that comment ✅
-5. Friend can make a reaction (like, dislike) to each other post
-6. Friend can make a reaction (like, dislike) to each other comment
+5. Friend can make a reaction (like, dislike) to each other post ✅
+6. Friend can make a reaction (like, dislike) to each other comment ✅
 
 ## Production API
 

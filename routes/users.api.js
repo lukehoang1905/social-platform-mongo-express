@@ -8,7 +8,7 @@ const {
   updateCurrentUser,
   deactivateCurrentUser,
   getCurrentUserProfile,
-} = require("../controllers/user.controllers");
+} = require("../controllers/user.controller");
 const { loginRequired } = require("../middlewares/authentication");
 const { validate, checkObjectId } = require("../middlewares/validator");
 const router = express.Router();
