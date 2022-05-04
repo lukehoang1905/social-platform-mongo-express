@@ -1,4 +1,5 @@
 const { catchAsync, sendResponse, AppError } = require("../helpers/utils");
+const Comment = require("../models/Comment");
 const Post = require("../models/Post");
 
 const postController = {};
@@ -79,4 +80,28 @@ postController.getFriendPost = catchAsync(async (req, res, next) => {
     "get post successful"
   );
 });
+
+postController.getPostComments = catchAsync(async (req, res, next) => {
+  const postId = req.params.id;
+  const post = await Post.findOne({ _id: postId, isDeleted: false });
+  if (!post) {
+    throw new AppError(404, "Post not found", "Get post comment error");
+  }
+  let { page, limit } = req.query;
+  page = parseInt(page) || 1;
+  limit = parseInt(limit) || 10;
+
+  const count = await Comment.countDocuments({ isDeleted: false });
+  const totalPage = Math.ceil(count / limit);
+  const offset = limit * (page - 1);
+
+  const comments = await Comment.find({ post: postId, isDeleted: false })
+    .sort({ createdAt: -1 })
+    .skip(offset)
+    .limit(limit)
+    .populate("author");
+
+  sendResponse(res, 200, true, { totalPage, comments }, null, "successful");
+});
+
 module.exports = postController;
