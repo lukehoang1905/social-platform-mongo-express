@@ -42,11 +42,12 @@ This include all common features of a Social Platform.
 
 ### CRUD comment & reaction for friend (InteractionFlow)
 
-1. Friend can make a comment (POST a comment) to other friend's post
-2. Friend can see a list of all comment belong to friend's post
-3. Author of Comment can update that comment
-4. Author of Comment can delete that comment
+1. Friend can make a comment (POST a comment) to other friend's post ✅
+2. Friend can see a list of all comment belong to friend's post ✅ (Post api)
+3. Author of Comment can update that comment ✅
+4. Author of Comment can delete that comment ✅
 5. Friend can make a reaction (like, dislike) to each other post
+6. Friend can make a reaction (like, dislike) to each other comment
 
 ## Production API
 
